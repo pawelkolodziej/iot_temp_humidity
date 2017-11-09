@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='iot_temp_humidity',
@@ -8,5 +8,6 @@ setup(
     license='MIT',
     author='PawelK',
     author_email='pakolodziej@gmail.com',
-    description='RaspberryPi - get temp and humidity from sensor'
+    description='RaspberryPi - get temp and humidity from sensor',
+    install_requires=['urllib3','adafruit_python_dht']
 )

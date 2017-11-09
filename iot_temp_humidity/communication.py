@@ -2,13 +2,13 @@
 import time
 import datetime
 import os
-import urllib2
+import urllib
 import iot_temp_humidity.sensor as sensor
 
 #gloabl variables
 ts = None
 st = None
-THINGS_PEAK_API_KEY = "DALZ4ZCKJ03P9GHY"myAPI = "DALZ4ZCKJ03P9GHY"
+THINGS_PEAK_API_KEY = "DALZ4ZCKJ03P9GHY"
 
 # get current Date and Time
 def getCurrentDateAndTime():
@@ -19,7 +19,7 @@ def getCurrentDateAndTime():
 #send it to thingspeak.com
 def sendToThingsPeak():
     baseURL = 'https://api.thingspeak.com/update?api_key=%s' % THINGS_PEAK_API_KEY
-    f = urllib2.urlopen(baseURL + "&field1=%s&field2=%s" % (sensor.temp, sensor.humidity))
+    f = urllib.urlopen(baseURL + "&field1=%s&field2=%s" % (sensor.temp, sensor.humidity))
 
 def saveToHtml():
     filename = "/var/www/html/pi_temp_humid.html"
@@ -31,4 +31,3 @@ def saveToHtml():
                 raise
     with open(filename, "ab") as fo:
     	fo.write(st + ', Temp={0:0.1f}*C,  Humidity={1:0.1f}% <br />'.format(sensor.temp, sensor.humidity) )
-        fo.close()
