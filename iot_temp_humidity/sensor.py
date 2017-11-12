@@ -7,4 +7,5 @@ temp = 0
 
 #get temp and humidity from sensor DHT22
 def getTempAndHumidityFromSensor():
+    global humidity, temp
     humidity,temp = dht.read_retry(dht.DHT22, 4)
