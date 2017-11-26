@@ -9,10 +9,12 @@ def doAll():
     com.sendToThingsPeak()
 
 def scheduleAndDoAll():
+    print "temp and humidity scheduleAndDoAll"
     schedule.every(15).minutes.do(doAll)
     while 1:
         schedule.run_pending()
         time.sleep(1)
 
-scheduleAndDoAll()
+if __name__ == '__main__':
+    scheduleAndDoAll()
 #doAll()
