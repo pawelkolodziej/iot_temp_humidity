@@ -4,11 +4,15 @@ import datetime
 import os
 import urllib
 import sensor as sensor
+from pyfcm import FCMNotification
 
 #gloabl variables
 ts = None
 st = None
 THINGS_PEAK_API_KEY = "DALZ4ZCKJ03P9GHY"
+#FCM
+push_service = FCMNotification(api_key="AIzaSyArSraurFhSQqzh3G_5Av_m6-ZFA6ptxEo")
+registration_id = "<device registration_id>"
 
 # get current Date and Time
 def getCurrentDateAndTime():
@@ -34,3 +38,8 @@ def saveToHtml():
                 raise
     with open(filename, "ab") as fo:
     	fo.write(st + ', Temp={0:0.1f}*C,  Humidity={1:0.1f}% <br />'.format(sensor.temp, sensor.humidity) )
+
+def sendNotoficationMotion():
+    message_title = "Alert"
+    message_body = "Temperatura"
+    result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title, message_body=message_body)

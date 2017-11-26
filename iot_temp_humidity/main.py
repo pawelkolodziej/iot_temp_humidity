@@ -9,10 +9,10 @@ def doAll():
     com.sendToThingsPeak()
 
 def scheduleAndDoAll():
-    schedule.every(1).minutes.do(doAll)
+    schedule.every(15).minutes.do(doAll)
     while 1:
         schedule.run_pending()
         time.sleep(1)
 
-#scheduleAndDoAll()
-doAll()
+scheduleAndDoAll()
+#doAll()
