@@ -9,5 +9,5 @@ setup(
     author='PawelK',
     author_email='pakolodziej@gmail.com',
     description='RaspberryPi - get temp and humidity from sensor',
-    install_requires=['schedule','adafruit_python_dht']
+    install_requires=['schedule','adafruit_python_dht','PyFCM']
 )
