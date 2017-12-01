@@ -15,11 +15,6 @@ def scheduleAndDoAll():
         schedule.run_pending()
         time.sleep(1)
 
-<<<<<<< HEAD
-scheduleAndDoAll()
-#doAll()
-=======
 if __name__ == '__main__':
     scheduleAndDoAll()
 #doAll()
->>>>>>> bfa85d89b06150ae7ec66ee47b4deedb1b844fb9
